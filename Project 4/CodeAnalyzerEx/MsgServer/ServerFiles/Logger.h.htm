@@ -1,0 +1,84 @@
+<html><head><link rel=stylesheet type=text/css href=./ServerFiles/mystylesheet.css><h3><b>Dependent Files</b></h3><hr><script type="text/javascript" src="./ServerFiles/HideUnhide.js"></script>
+</head><a href =./ServerFiles/Logger.h.htm>Logger.h </a><br><pre><body>#ifndef LOGGER_H
+#define LOGGER_H
+/////////////////////////////////////////////////////////////////////
+// Logger.h - log text messages to std::ostream                    //
+// ver 1.0                                                         //
+//-----------------------------------------------------------------//
+// Jim Fawcett (c) copyright 2015                                  //
+// All rights granted provided this copyright notice is retained   //
+//-----------------------------------------------------------------//
+// Language:    C++, Visual Studio 2015                            //
+// Application: Several Projects, CSE687 - Object Oriented Design  //
+// Author:      Jim Fawcett, Syracuse University, CST 4-187        //
+//              jfawcett@twcny.rr.com                              //
+/////////////////////////////////////////////////////////////////////
+/*
+* Package Operations:
+* -------------------
+* This package supports logging for multiple concurrent clients to a
+* single std::ostream.  It does this be enqueuing messages in a
+* blocking queue and dequeuing with a single thread that writes to
+* the std::ostream.
+*
+* Build Process:
+* --------------
+* Required Files: Logger.h, Logger.cpp, Utilities.h, Utilities.cpp
+*
+* Build Command: devenv logger.sln /rebuild debug
+*
+* Maintenance History:
+* --------------------
+* ver 1.0 : 22 Feb 2016
+* - first release
+*
+* Planned Additions and Changes:
+* ------------------------------
+* - none yet
+*/
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;thread&gt;
+#include "Cpp11-BlockingQueue.h"
+
+class Logger
+{<button onclick = "myFunction(0)">+</button><div id =0>
+public:
+  Logger() {<button onclick = "myFunction(1)">+</button><div id =1>}</div>
+  void attach(std::ostream* pOut);
+  void start();
+  void stop(const std::string& msg = "");
+  void write(const std::string& msg);
+  void title(const std::string& msg, char underline = '-');
+  ~Logger();
+  Logger(const Logger&) = delete;
+  Logger& operator=(const Logger&) = delete;
+private:
+  std::thread* _pThr;
+  std::ostream* _pOut;
+  BlockingQueue&lt;std::string&gt; _queue;
+  bool _ThreadRunning = false;
+}</div>;
+
+template&lt;int i&gt;
+class StaticLogger
+{<button onclick = "myFunction(2)">+</button><div id =2>
+public:
+  static void attach(std::ostream* pOut) {<button onclick = "myFunction(3)">+</button><div id =3> _logger.attach(pOut); }</div>
+  static void start() {<button onclick = "myFunction(4)">+</button><div id =4> _logger.start(); }</div>
+  static void stop(const std::string& msg="") {<button onclick = "myFunction(5)">+</button><div id =5> _logger.stop(msg); }</div>
+  static void write(const std::string& msg) {<button onclick = "myFunction(6)">+</button><div id =6> _logger.write(msg); }</div>
+  static void title(const std::string& msg, char underline = '-') {<button onclick = "myFunction(7)">+</button><div id =7> _logger.title(msg, underline); }</div>
+  static Logger& instance() {<button onclick = "myFunction(8)">+</button><div id =8> return _logger; }</div>
+  StaticLogger(const StaticLogger&) = delete;
+  StaticLogger& operator=(const StaticLogger&) = delete;
+private:
+  static Logger _logger;
+}</div>;
+
+template&lt;int i&gt;
+Logger StaticLogger&lt;i&gt;::_logger;
+
+#endif
+</body></pre></html>

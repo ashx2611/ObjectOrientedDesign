@@ -1,0 +1,8 @@
+h3{ font - color:black; border-bottom-style:solid #008B8B; }
+body{
+margin:20px; color:#008080;background-color:#FFF0F5;
+font - family:Comic Sans; font - weight:600; font - size:120 % ;
+}
+.indent{ margin - left:20px; margin - right:20px; }
+h4{ margin - bottom: 3px; margin - top:3px; }
+#myDIV{width: 100 % ;padding: 50px 0;text - align: center;background - color: lightblue;margin - top:20px;}

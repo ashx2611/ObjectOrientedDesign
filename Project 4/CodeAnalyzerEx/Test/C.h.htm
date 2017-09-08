@@ -1,0 +1,21 @@
+<html><head><link rel=stylesheet type=text/css href=../ServerFiles/mystylesheet.css><h3><b>Dependent Files</b></h3><hr><script type="text/javascript" src="../ServerFiles/HideUnhide.js"></script>
+</head><a href =../ServerFiles/A.h.htm>A.h </a><br><a href =../ServerFiles/C.h.htm>C.h </a><br><a href =../ServerFiles/D.h.htm>D.h </a><br><pre><body>#pragma once
+#include "D.h"
+#include "A.h"	
+	class C {<button onclick = "myFunction(0)">+</button><div id =0>
+	public:
+		void showC();
+	private:
+		A a;
+	    D d;
+	}</div>;
+
+	void C::showC()
+	{<button onclick = "myFunction(1)">+</button><div id =1>
+		a.showA();
+		std::cout &lt;&lt; "\nHello from C\n";
+	}</div>
+
+
+
+</body></pre></html>

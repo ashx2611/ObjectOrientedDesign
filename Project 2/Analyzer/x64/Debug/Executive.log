@@ -1,0 +1,12 @@
+﻿  Executive.cpp
+e:\ood\codeanalyzerex\analyzer\executive.cpp(953): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Compiling...
+  XmlWrite.cpp
+  DependencyTable.cpp
+  DepAnal.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  TypeTable.cpp
+  Executive.vcxproj -> E:\OOD\CodeAnalyzerEx\x64\Debug\CodeAnalyzer.exe
+  Executive.vcxproj -> E:\OOD\CodeAnalyzerEx\x64\Debug\CodeAnalyzer.pdb (Full PDB)

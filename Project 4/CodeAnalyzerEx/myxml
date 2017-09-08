@@ -1,0 +1,64 @@
+
+  <database>
+    <ELement>
+      <Name>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Test.cpp
+      </Name>
+      <Dependent Files>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child.h
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child2.h
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Grandparent.h
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Parent.h
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child.cpp
+      </Name>
+      <Dependent Files>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child.h
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child.h
+      </Name>
+      <Dependent Files>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child.h
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child2.h
+      </Name>
+      <Dependent Files>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child.h
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child2.h
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Grandparent.h
+      </Name>
+      <Dependent Files>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child.h
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Grandparent.h
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Parent.cpp
+      </Name>
+      <Dependent Files>
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Parent.h
+      </Name>
+      <Dependent Files>
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Child\Child.h
+        E:\CodeAnalyzerEx - Copy\CodeAnalyzerEx\TA-TEST-Project-2\files\Parent.h
+      </Dependent Files>
+    </ELement>
+  </database>

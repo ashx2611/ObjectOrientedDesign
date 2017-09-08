@@ -1,0 +1,118 @@
+<html><head><link rel=stylesheet type=text/css href=../ServerFiles/mystylesheet.css><h3><b>Dependent Files</b></h3><hr><script type="text/javascript" src="../ServerFiles/HideUnhide.js"></script>
+</head><a href =../ServerFiles/Logger.cpp.htm>Logger.cpp </a><br><a href =../ServerFiles/Logger.h.htm>Logger.h </a><br><pre><body>/////////////////////////////////////////////////////////////////////
+// Logger.cpp - log text messages to std::ostream                  //
+// ver 1.0                                                         //
+//-----------------------------------------------------------------//
+// Jim Fawcett (c) copyright 2015                                  //
+// All rights granted provided this copyright notice is retained   //
+//-----------------------------------------------------------------//
+// Language:    C++, Visual Studio 2015                            //
+// Application: Several Projects, CSE687 - Object Oriented Design  //
+// Author:      Jim Fawcett, Syracuse University, CST 4-187        //
+//              jfawcett@twcny.rr.com                              //
+/////////////////////////////////////////////////////////////////////
+
+#include &lt;functional&gt;
+#include "Logger.h"
+#include "../Utilities/Utilities.h"
+
+//----&lt; send text message to std::ostream &gt;--------------------------
+
+void Logger::write(const std::string& msg)
+{<button onclick = "myFunction(0)">+</button><div id =0>
+  if(_ThreadRunning)
+    _queue.enQ(msg);
+}</div>
+void Logger::title(const std::string& msg, char underline)
+{<button onclick = "myFunction(1)">+</button><div id =1>
+  std::string temp = "\n  " + msg + "\n " + std::string(msg.size() + 2, underline);
+  write(temp);
+}</div>
+//----&lt; attach logger to existing std::ostream &gt;---------------------
+
+void Logger::attach(std::ostream* pOut) 
+{<button onclick = "myFunction(2)">+</button><div id =2> 
+  _pOut = pOut; 
+}</div>
+//----&lt; start logging &gt;----------------------------------------------
+
+void Logger::start()
+{<button onclick = "myFunction(3)">+</button><div id =3>
+  if (_ThreadRunning)
+    return;
+  _ThreadRunning = true;
+  std::function&lt;void()&gt; tp = [=]() {<button onclick = "myFunction(4)">+</button><div id =4>
+    while (true)
+    {<button onclick = "myFunction(5)">+</button><div id =5>
+      std::string msg = _queue.deQ();
+      if (msg == "quit")
+      {<button onclick = "myFunction(6)">+</button><div id =6>
+        _ThreadRunning = false;
+        break;
+      }</div>
+      *_pOut &lt;&lt; msg;
+    }</div>
+  }</div>;
+  std::thread thr(tp);
+  thr.detach();
+}</div>
+//----&lt; stop logging &gt;-----------------------------------------------
+
+void Logger::stop(const std::string& msg)
+{<button onclick = "myFunction(7)">+</button><div id =7>
+  if (_ThreadRunning)
+  {<button onclick = "myFunction(8)">+</button><div id =8>
+    if(msg != "")
+      write(msg);
+    write("quit");  // request thread to stop
+    while (_ThreadRunning)
+      /* wait for thread to stop*/
+      ;
+  }</div>
+}</div>
+//----&lt; stop logging thread &gt;----------------------------------------
+
+Logger::~Logger()
+{<button onclick = "myFunction(9)">+</button><div id =9>
+  stop(); 
+}</div>
+
+struct Cosmetic
+{<button onclick = "myFunction(10)">+</button><div id =10>
+  ~Cosmetic() {<button onclick = "myFunction(11)">+</button><div id =11> std::cout &lt;&lt; "\n\n"; }</div>
+}</div> cosmetic;
+
+#ifdef TEST_LOGGER
+
+using Util = Utilities::StringHelper;
+
+int main()
+{<button onclick = "myFunction(12)">+</button><div id =12>
+  //Util::Title("Testing Logger Class");
+  Logger log;
+  log.attach(&std::cout);
+  log.write("\n  won't get logged - not started yet");
+  log.start();
+  log.title("Testing Logger Class", '=');
+  log.write("\n  one");
+  log.write("\n  two");
+  log.write("\n  fini");
+  log.stop();
+  log.write("\n  won't get logged - stopped");
+  log.start();
+  log.write("\n  starting again");
+  log.write("\n  and stopping again");
+  log.stop("\n  terminating now");
+
+  StaticLogger&lt;1&gt;::attach(&std::cout);
+  StaticLogger&lt;1&gt;::start();
+  StaticLogger&lt;1&gt;::write("\n");
+  StaticLogger&lt;1&gt;::title("Testing StaticLogger class");
+  StaticLogger&lt;1&gt;::write("\n  static logger at work");
+  Logger& logger = StaticLogger&lt;1&gt;::instance();
+  logger.write("\n  static logger still at work");
+  logger.stop("\n  stopping static logger");
+}</div>
+
+#endif
+</body></pre></html>

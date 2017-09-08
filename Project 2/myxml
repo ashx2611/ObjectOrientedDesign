@@ -1,0 +1,86 @@
+
+  <database>
+    <ELement>
+      <Name>
+        E:\OOD\CodeAnalyzerEx\Test\A.cpp
+      </Name>
+      <Dependent Files>
+        A.cpp
+        A.h
+        B.h
+        B.cpp
+        A.cpp
+        A.h
+        A.cpp
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\OOD\CodeAnalyzerEx\Test\A.h
+      </Name>
+      <Dependent Files>
+        A.h
+        B.h
+        A.cpp
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\OOD\CodeAnalyzerEx\Test\B.cpp
+      </Name>
+      <Dependent Files>
+        A.cpp
+        A.h
+        A.cpp
+        B.h
+        B.cpp
+        B.h
+        B.cpp
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\OOD\CodeAnalyzerEx\Test\B.h
+      </Name>
+      <Dependent Files>
+        B.h
+        B.cpp
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\OOD\CodeAnalyzerEx\Test\D.h
+      </Name>
+      <Dependent Files>
+        D.h
+        D.h
+        D.h
+        D.h
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\OOD\CodeAnalyzerEx\Test\C.cpp
+      </Name>
+      <Dependent Files>
+        A.cpp
+        A.h
+        B.h
+        C.h
+        B.cpp
+        A.cpp
+        C.cpp
+        C.h
+        C.cpp
+      </Dependent Files>
+    </ELement>
+    <ELement>
+      <Name>
+        E:\OOD\CodeAnalyzerEx\Test\C.h
+      </Name>
+      <Dependent Files>
+        C.h
+        C.cpp
+      </Dependent Files>
+    </ELement>
+  </database>
